@@ -110,13 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function moveButton() {
-        // Randomly move 'noButton' within the viewport
-        const newX = Math.random() * (window.innerWidth - noButton.clientWidth);
-        const newY = Math.random() * (window.innerHeight - noButton.clientHeight);
-        noButton.style.position = 'fixed'; // Use 'fixed' to make it relative to the viewport
-        noButton.style.left = newX + 'px';
-        noButton.style.top = newY + 'px';
-    }
+    // Calculate the viewport dimensions minus the button dimensions to prevent overflow
+    const viewportWidth = window.innerWidth - noButton.offsetWidth;
+    const viewportHeight = window.innerHeight - noButton.offsetHeight;
+
+    // Ensure the new position is within the viewport dimensions
+    const newX = Math.random() * viewportWidth;
+    const newY = Math.random() * viewportHeight;
+
+    noButton.style.left = newX + 'px';
+    noButton.style.top = newY + 'px';
+}
+
 
     function startHeartAnimation() {
         // Settings for the heart animation
