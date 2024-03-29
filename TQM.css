@@ -61,6 +61,10 @@ body, html {
 
 /* Style for positioning the no button directly below the yes button */
 #noButton {
-    margin-top: 50px; /* Add space between the yes and no buttons */
-   margin-left: -144px;
+    position: fixed;
+    bottom: 20px; /* Positions the button from the bottom of the viewport */
+    left: 50%; /* Centers the button horizontally */
+    transform: translateX(-50%); /* Adjusts the horizontal position to truly center based on the button's width */
+    transition: bottom 0.5s, left 0.5s; /* Smooth movement animation for bottom and left properties */
 }
+
