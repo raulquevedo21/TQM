@@ -13,6 +13,8 @@ body, html {
 #container {
     padding: 20px;
     transition: transform 0.3s ease-in-out;
+    max-width: 90%; /* Limit the width to prevent overflow on small screens */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 .button {
@@ -47,7 +49,30 @@ body, html {
 #question {
     margin-bottom: 20px;
     font-size: 24px; /* Larger font size for better readability */
+    padding: 0 10px; /* Add padding to prevent text from touching the edges on small screens */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button {
+        font-size: 14px; /* Smaller font size for better fit on small screens */
+        padding: 8px 15px; /* Adjust padding to maintain proportion */
+    }
+
+    #question {
+        font-size: 20px; /* Adjust the question font size for smaller screens */
+    }
+
+    /* Adjust button positions for better usability on small screens */
+    #noButton {
+        margin-top: 10px; /* Reduce space between the yes and no buttons */
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+}
+
 /* Additional styles for button and question enhancements */
 .button#yesButton {
     background-color: #ff4081; /* Make the yes button pink */
@@ -62,5 +87,5 @@ body, html {
 /* Style for positioning the no button directly below the yes button */
 #noButton {
     margin-top: 50px; /* Add space between the yes and no buttons */
-   margin-left: -144px;
+    margin-left: -144px; /* This might need adjustment or removal for responsiveness */
 }
